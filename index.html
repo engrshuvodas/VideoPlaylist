@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>play next video automatically</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body onLoad="autoPlay()" style="font-family:roboto;">
+    <section class="vid-cont">
+        <video id="myvid" controls>
+            <source src="" type="video/mp4"> </video>
+    </section>
+    <section class="menu-cont">
+        <ul class="vid-head" id="vidhead">
+            <li class="headline">
+                <b>Table of Contents</b>
+                <div class="orange"></div>
+            </li>
+
+            <li class="vid-list" id="Video1" data-videosrc="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148422/Vienna-SD.mp4" autoplay><span>Video 1</span></li>
+
+
+            <li class="vid-list" id="Video2" data-videosrc="http://techslides.com/demos/sample-videos/small.mp4"><span>Video 2</span></li>
+
+
+            <li class="vid-list" id="Video3" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"><span>Video 3</span></li>
+
+            <li class="vid-list" id="Video4" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"><span>Video 4</span></li>
+
+            <li class="vid-list" id="Video5" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"><span>Video 5</span></li>
+
+            <li class="vid-list" id="Video6" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"><span>Video 6</span></li>
+
+            <li class="vid-list" id="Video7" data-videosrc="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148422/Vienna-SD.mp4"><span>Video 7</span></li>
+
+            <li class="vid-list" id="Video8" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"><span>Video 8</span></li>
+
+            <li class="vid-list" id="Video9" data-videosrc="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148422/Vienna-SD.mp4"><span>Video 9</span></li>
+
+            <li class="vid-list" id="Video10" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"><span>Video 10</span></li>
+
+            <li class="vid-list" id="Video11" data-videosrc="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"><span>Video 11</span></li>
+
+
+        </ul>
+
+    </section>
+    <script>
+        var bodyload = document.getElementById('bodyonload');
+        var vidlist = document.getElementsByClassName('vidlist');
+        var myvid = document.getElementById('myvid');
+        var vidhead = document.getElementById('vidhead');
+
+
+        function playlistItemClick(clickedElement) {
+            var selected = vidhead.querySelector(".selected");
+            if (selected) {
+                selected.classList.remove("selected");
+                console.log("remove" + selected.className);
+            }
+            console.log(clickedElement)
+            clickedElement.classList.add("selected");
+
+            myvid.src = clickedElement.getAttribute("data-videosrc");
+            myvid.play();
+        }
+
+        function autoPlay() {
+            var video1=document.getElementById('Video1');
+            playlistItemClick(video1);
+        }
+        
+        vidhead.addEventListener("click", function(e) {
+            if (e.target && e.target.nodeName === "LI") {
+                playlistItemClick(e.target);
+            }
+        });
+
+        myvid.addEventListener("ended", playNext);
+
+        function playNext() {
+            var selected = vidhead.querySelector('li.selected');
+            if (selected && selected.nextElementSibling) {
+                playlistItemClick(selected.nextElementSibling);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

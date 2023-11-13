@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+
+}
+
+.selected
+{
+    color: orange!important;
+}
+
+.vid-list:visited{
+    color: green;
+}
+
+.vid-cont {
+    width: 970px;
+    height: 635px;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    float: left;
+}
+
+#myvid {
+    width: 970px;
+    height: 635px;
+    margin: 0;
+    position: absolute;
+}
+
+
+.menu-cont {
+    width: 379px;
+    height: 635px;
+    float: left;
+    background-color: #222222;
+    position: relative;
+
+}
+
+
+.vid-head {
+    width: 379px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 20px;
+}
+
+.headline {
+    width: 379px;
+    height: 35px;
+    color: #ffffff;
+    list-style-type: none;
+    font-style: normal;
+    font-family: roboto;
+    background-color: #222222;
+    border-bottom: 2px solid #363636;
+}
+
+
+b {
+    padding-left: 20px;
+}
+
+.orange {
+    position: relative;
+    top: 14px;
+    left: 25px;
+    width: 110px;
+    height: 4px;
+    background-color: #f96816;
+
+}
+
+.vid-list {
+    width: 379px;
+    height: 50px;
+    color: #c8c3c3;
+    list-style-type: none;
+    font-style: normal;
+    font-family: roboto;
+    background-color: #363636;
+    border-bottom: 2px solid #222222;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+    /* left: 20px; */
+}
+
+.vid-list:active {
+    background-color: #363636;
+}
+
+span {
+    position: relative;
+    left: 20px;
+    top: 13px;
+}
